@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/Tests">
+	<Resource
+		name="jdbc/tests"
+		author="Container"
+		type="javax.sql.DataSource"
+		maxActive="32"
+		maxIdle="8"
+		maxWait="10000"
+		username="sa"
+		password="0000"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=tests"
+	/>
+</Context>
