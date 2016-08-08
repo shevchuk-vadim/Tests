@@ -10,6 +10,6 @@
 		username="sa"
 		password="0000"
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=tests"
+		url="jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=working_tests"
 	/>
 </Context>

@@ -1,5 +1,6 @@
 package ua.shevchuk.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,25 +13,37 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.sql.DataSource;
 import ua.shevchuk.logic.Subject;
 
-public class SubjectDao {
+/**
+ * This class provides access to the table SUBJECTS in the database.
+ */
+public class SubjectDao extends AbstractDao {
 	
 	private final String GET_SUBJECTS_BY_LENGUAGE;
 	private final String GET_SUBJECT; 
 	private final String GET_ANY_SUBJECT; 
 
-	private DataSource dataSource;
 	private final Map<Integer, Subject> map = new ConcurrentHashMap<>();
 	
+	/**
+	 * @param resourceBundle a resource bundle with SQL queries
+	 * @param dataSource a data source
+	 */
 	public SubjectDao(ResourceBundle resourceBundle, DataSource dataSource) {
-		GET_SUBJECTS_BY_LENGUAGE = resourceBundle.getString("SUBJECT.GET_LIST_BY_LANGUAGE");
-		GET_SUBJECT = resourceBundle.getString("SUBJECT.GET");
-		GET_ANY_SUBJECT = resourceBundle.getString("SUBJECT.GET_ANY");
+		super(resourceBundle, dataSource);
 		
-		this.dataSource = dataSource;
+		GET_SUBJECTS_BY_LENGUAGE = getResource("SUBJECT.GET_LIST_BY_LANGUAGE");
+		GET_SUBJECT = getResource("SUBJECT.GET");
+		GET_ANY_SUBJECT = getResource("SUBJECT.GET_ANY");
 	}
 
-    public List<Subject> getListByLanguage(String language) throws SQLException {
-  		try (Connection connection = dataSource.getConnection()) {
+	/**
+	 * Gets a list of subjects for a given language.
+	 * @param language language code as a string like "en"
+	 * @return a List view of the subjects for a given language
+	 * @throws SQLException if an error occurred while accessing the database
+	 */
+	public List<Subject> getListByLanguage(String language) throws SQLException {
+  		try (Connection connection = getConnection()) {
 	    	ArrayList<Subject> list = new ArrayList<>();
 			PreparedStatement statement = connection.prepareStatement(GET_SUBJECTS_BY_LENGUAGE);
 			statement.setString(1, language);
@@ -46,8 +59,14 @@ public class SubjectDao {
 		}
     }
 
+	/**
+	 * Gets a subject by its identifier.
+	 * @param id a subject identifier
+	 * @return a Subject object
+	 * @throws SQLException if an error occurred while accessing the database
+	 */
 	public Subject get(int id) throws SQLException {
-		try (Connection connection = dataSource.getConnection()) {
+		try (Connection connection = getConnection()) {
 			Subject subject = map.get(id);
 			if (subject == null) {
 				PreparedStatement statement = connection.prepareStatement(GET_SUBJECT);
@@ -64,8 +83,13 @@ public class SubjectDao {
 		}
 	}
 
+	/**
+	 * Gets the first found subject.
+	 * @return a Subject object
+	 * @throws SQLException if an error occurred while accessing the database
+	 */
 	public Subject getAny() throws SQLException {
-		try (Connection connection = dataSource.getConnection()) {
+		try (Connection connection = getConnection()) {
 			Subject subject = null;
 			PreparedStatement statement = connection.prepareStatement(GET_ANY_SUBJECT);
 			ResultSet resultSet = statement.executeQuery();

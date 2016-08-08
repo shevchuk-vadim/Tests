@@ -3,6 +3,8 @@ package ua.shevchuk.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 /**
  * The class for selecting commands that handle the HTTP requests.  
  */
@@ -12,7 +14,8 @@ public class CommandFactory {
 	
 	private Map<String, ActionCommand> commands = new HashMap<>();
 
-    private CommandFactory() {}
+    private CommandFactory() {
+    }
 
 	/**
 	 * Selects a command that handle the HTTP request.
@@ -28,7 +31,7 @@ public class CommandFactory {
 	        try {
 				command = (ActionCommand) Class.forName(name).newInstance();
 			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-				e.printStackTrace();
+				Logger.getRootLogger().fatal("CommandFactory", e);
 			}
 	        commands.put(path, command);
 		}

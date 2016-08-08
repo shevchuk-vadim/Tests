@@ -29,7 +29,7 @@ public class StartTestingCommand extends ActionCommand {
 		User user = (User) request.getSessionAttribute("user");
 		Subject subject = (Subject) request.getSessionAttribute("subject");
 		if (testId == 0) {
-			test = new Test(testId, subject, user, new ArrayList<>());
+			test = new Test(0, 0, subject, user, new ArrayList<>());
 		} else {
 			try {
 				test = DaoFactory.getTestDao().get(user, subject, testId);
@@ -51,7 +51,7 @@ public class StartTestingCommand extends ActionCommand {
 		request.setAttribute("testId", testId);
 		request.setAttribute("questionNumber", 1);
 		if (testId == 0) {
-			request.setSessionAttribute("size", 1);
+			request.setSessionAttribute("size", 0);
 			return "/create.jsp";
 		} else if (!test.isPassed()) {
 			request.setAttribute("question", test.getQuestions().get(0));

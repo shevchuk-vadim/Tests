@@ -13,7 +13,7 @@
 		<a href="index.jsp"><fmt:message key="command.home"/></a>
 		<a href="DisplayTests?subjectId=${subject.id}"><fmt:message key="command.test_list"/></a>
 		<form name="resultForm" method="post" action="SaveQuestion">
-			<h2><fmt:message key="label.test_result"/> № ${test.id} <fmt:message key="label.on_subject"/> ${subject.name}</h2>
+			<h2><fmt:message key="label.test_result"/> № ${test.nuber} <fmt:message key="label.on_subject"/> ${subject.name}</h2>
 			<input type="hidden" name="testId" value="${testId}"/>
 			<fmt:message key="label.number_of_questions"/>: ${test.size} 
 			<fmt:message key="label.number_of_correct_answers"/>: ${test.result}
@@ -21,7 +21,7 @@
 			<input type="hidden" name="questionNumber" value="${questionNumber}"/>
 			<p style="white-space: pre-wrap">${question.text}</p>
 			<p style="white-space: pre-wrap"><code>${question.code}</code></p>
-			<ol style="list-style-type: lower-alpha">
+			<ol style="list-style-type: upper-alpha">
 				<c:forEach var="answer" items="${question.answers}">
 					<li>
 						<label>

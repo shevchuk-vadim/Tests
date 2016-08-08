@@ -4,10 +4,17 @@ import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * This class provides an implementation of the RequestWrapper interface,
+ * and gets an instance of HttpServletRequest wrapped class in the constructor.
+ */
 public class WorkingRequestWrapper implements RequestWrapper {
 
 	HttpServletRequest request;
 	
+	/**
+	 * @param request a wrapped HttpServletRequest object
+	 */
 	public WorkingRequestWrapper(HttpServletRequest request) {
 		this.request = request;
 		try {

@@ -11,6 +11,9 @@ import ua.shevchuk.logic.User;
 import ua.shevchuk.testing.TestingDataSource;
 import ua.shevchuk.testing.TestingRequestWrapper;
 
+/**
+ * JUnit tests for DisplayTestsCommand class
+ */
 public class DisplayTestsCommandTest {
 
 	@Test

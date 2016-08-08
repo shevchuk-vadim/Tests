@@ -33,7 +33,7 @@ public class SaveQuestionCommand extends ActionCommand {
 	public String execute(RequestWrapper request) {
 		Test test = (Test) request.getSessionAttribute("test");
 		int testId = request.getIntParameter("testId");
-		/*verification of the resend of form since passing the test was complete*/
+		/*verification of resend of the form since passing the test was complete*/
 		if (test.getId() != testId) {
 			request.setAttributeErrorMessage("error.test_is_interrupted");
 			return "/error.jsp";
@@ -51,7 +51,7 @@ public class SaveQuestionCommand extends ActionCommand {
 				List<Answer> answers = new ArrayList<>();
 				for (int i = 1; i <= 8; i++) {
 					String answerTest = request.getParameter("text" + i);
-					if (answerTest.length() == 0) {
+					if ((answerTest == null) || (answerTest.length() == 0)) {
 						break;
 					}
 					boolean isCorrectAnswer = (request.getParameter("correct" + i) != null);

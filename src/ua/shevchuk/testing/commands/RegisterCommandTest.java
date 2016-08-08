@@ -12,6 +12,9 @@ import ua.shevchuk.logic.User;
 import ua.shevchuk.testing.TestingDataSource;
 import ua.shevchuk.testing.TestingRequestWrapper;
 
+/**
+ * JUnit tests for RegisterCommand class
+ */
 public class RegisterCommandTest {
 
 	private RegisterCommand command;
@@ -47,6 +50,7 @@ public class RegisterCommandTest {
 		request.setParameter("password", "1");
 		request.setParameter("repeatPassword", "2");
 		String path = command.execute(request);
+		user = null;
 		Assert.assertEquals("/registration.jsp", path);
 		Assert.assertNotNull(request.getAttribute("errorMessage"));
 		Assert.assertNotNull(request.getAttribute("login"));

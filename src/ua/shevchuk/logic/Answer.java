@@ -1,5 +1,8 @@
 package ua.shevchuk.logic;
 
+/**
+ * This class is a variant of answer for a question in the system of testing.
+ */
 public class Answer {
 	
 	private int id;

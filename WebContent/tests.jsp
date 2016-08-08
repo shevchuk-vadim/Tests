@@ -38,7 +38,7 @@
 			</tr>
 			<c:forEach var="test" items="${tests}">
 				<tr>
-					<td><a href="StartTesting?testId=${test.id}"><fmt:message key="label.test"/> № ${test.id}</a></td>
+					<td><a href="StartTesting?testId=${test.id}"><fmt:message key="label.test"/> № ${test.number}</a></td>
 					<td>${test.user.login}</td>
 					<td><input type="checkbox" disabled <c:if test="${test.passed}">checked</c:if>/></td>
 				</tr>

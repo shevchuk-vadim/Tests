@@ -2,6 +2,14 @@ package ua.shevchuk.tags;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
+/**
+ * This class provides an implementation of the IterationTag interface
+ * and defines JSP tag named "repeat". This tag repeats his body
+ * as many times as specified in its "number" attribute. In the body of the tag
+ * it is possible to use the variable that expose the the number of repeat.
+ * The name of this variable can be specify in optional tag attribute named "varCount".
+ * The variable is created in pageContext.   
+ */
 @SuppressWarnings("serial")
 public class RepeatTag extends TagSupport {
 	

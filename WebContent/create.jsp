@@ -24,7 +24,7 @@
 			<textarea name="code" rows="10" cols="80" maxlength="4000"></textarea><br/>
 			<fmt:message key="label.answers_to_question"/> 
 			(<fmt:message key="label.from_number"/> 2 <fmt:message key="label.to_number"/> 8):<br/>
-			<ol style="list-style-type: lower-alpha">
+			<ol style="list-style-type: upper-alpha">
 				<ctg:repeat number="8" varCount="count">
 					<li>
 						<input type="checkbox" name="correct${count}"/>

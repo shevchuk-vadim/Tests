@@ -2,6 +2,9 @@ package ua.shevchuk.logic;
 
 import java.util.List;
 
+/**
+ * This class is a question of test in the system of testing. 
+ */
 public class Question {
 
 	private int id;
@@ -61,6 +64,9 @@ public class Question {
 		this.answers = answers;
 	}
 
+	/**
+	 * @return true if an user answered this question correctly
+	 */
 	public boolean getResult() {
 		for (Answer answer : answers) {
 			if (answer.getResult() != answer.isCorrect()) {
@@ -70,6 +76,9 @@ public class Question {
 		return true;
 	}
 	
+	/**
+	 * @return true if an user has answered this question
+	 */
 	public boolean isAnswered() {
 		for (Answer answer : answers) {
 			if (answer.getResult() != false) {
@@ -79,9 +88,13 @@ public class Question {
 		return false;
 	}
 
+	/**
+	 * @return list of correct variants of answer for this question as a String,
+	 * in upper-alpha style (A, B, C, etc.)
+	 */
 	public String getCorrect() {
 		StringBuilder buf = new StringBuilder();
-		char c = 'a';
+		char c = 'A';
 		for (Answer answer : answers) {
 			if (answer.isCorrect()) {
 				buf.append(c);

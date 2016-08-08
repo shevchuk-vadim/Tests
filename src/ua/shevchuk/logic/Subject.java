@@ -1,5 +1,8 @@
 package ua.shevchuk.logic;
 
+/**
+ * This class is a subject in the system of testing. 
+ */
 public class Subject {
 
 	private int id;

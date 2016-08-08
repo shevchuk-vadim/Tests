@@ -8,6 +8,9 @@ import ua.shevchuk.dao.DaoFactory;
 import ua.shevchuk.testing.TestingDataSource;
 import ua.shevchuk.testing.TestingRequestWrapper;
 
+/**
+ * JUnit tests for SetLanguageCommand class
+ */
 public class SetLanguageCommandTest {
 
 	@Test

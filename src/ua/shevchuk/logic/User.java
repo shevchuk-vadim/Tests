@@ -1,5 +1,8 @@
 package ua.shevchuk.logic;
 
+/**
+ * This class is a user in the system of testing. 
+ */
 public class User {
 	
 	private int id;
@@ -18,6 +21,14 @@ public class User {
 		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 	public String getLogin() {
 		return login;
 	}

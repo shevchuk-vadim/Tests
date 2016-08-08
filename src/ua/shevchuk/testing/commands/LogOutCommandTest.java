@@ -5,6 +5,9 @@ import org.junit.Test;
 import ua.shevchuk.controller.commands.LogOutCommand;
 import ua.shevchuk.testing.TestingRequestWrapper;
 
+/**
+ * JUnit tests for LogOutCommand class
+ */
 public class LogOutCommandTest {
 
 	@Test
