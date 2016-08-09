@@ -13,7 +13,7 @@
 		<a href="index.jsp"><fmt:message key="command.home"/></a>
 		<a href="DisplayTests?subjectId=${subject.id}"><fmt:message key="command.test_list"/></a>
 		<form name="resultForm" method="post" action="SaveQuestion">
-			<h2><fmt:message key="label.test_result"/> № ${test.nuber} <fmt:message key="label.on_subject"/> ${subject.name}</h2>
+			<h2><fmt:message key="label.test_result"/> № ${test.number} <fmt:message key="label.on_subject"/> ${subject.name}</h2>
 			<input type="hidden" name="testId" value="${testId}"/>
 			<fmt:message key="label.number_of_questions"/>: ${test.size} 
 			<fmt:message key="label.number_of_correct_answers"/>: ${test.result}
