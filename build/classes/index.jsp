@@ -9,11 +9,11 @@
 		<meta charset="utf-8"></meta>
 		<title><fmt:message key="app.name"/></title>
 		<style type="text/css">
-			<jsp:include page="style.css"/>
+			@import "/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/Tests/WebContent/style.css";
  		</style>
 	</head>
 	<body>
-		<nav>
+		<nav style="background-color: lightgrey; padding: 5px 0 5px">
 			<div style="width: 10%; float: left">
 				<c:choose>
 					<c:when test="${language=='ru'}">
@@ -37,10 +37,14 @@
 		</nav>
 
 		<header>
-			<h1><fmt:message key="app.name"/></h1>
+			${pageContext.request.contextPath}<br/>
+			<c:url value="/WebContents/style.css"/>
+			<div style="width: 50%; text-align: center">
+				<h1><fmt:message key="app.name"/></h1>
+			</div>
 		</header>
 
-		<main>
+		<main style="background-color: lightblue; padding: 1px 0 1px">
 			<c:if test="${not emptyUser}">
 				<h3><fmt:message key="label.subjects_for_testing"/>:</h3>
 				<ol style="list-style-type: circle">

@@ -38,7 +38,9 @@ public class LogInCommandTest {
 	public void executeCorrectTest() {
 		request.setParameter("login", user.getLogin());
 		request.setParameter("password", user.getPassword());
+
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/index.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("user"));
 		Assert.assertNotNull(request.getSessionAttribute("subjects"));
@@ -48,7 +50,9 @@ public class LogInCommandTest {
 	public void executeIncorrectPasswordTest() {
 		request.setParameter("login", user.getLogin());
 		request.setParameter("password", user.getPassword() + "1");
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/login.jsp", path);
 		Assert.assertNotNull(request.getAttribute("errorMessage"));
 		Assert.assertNotNull(request.getAttribute("login"));
@@ -58,7 +62,9 @@ public class LogInCommandTest {
 	public void executeIncorrectLoginTest() {
 		request.setParameter("login", user.getLogin() + "1");
 		request.setParameter("password", user.getPassword());
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/login.jsp", path);
 		Assert.assertNotNull(request.getAttribute("errorMessage"));
 		Assert.assertNotNull(request.getAttribute("login"));

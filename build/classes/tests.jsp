@@ -6,11 +6,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title><fmt:message key="app.name"/></title>
-		<style type="text/css">
-			<jsp:include page="style.css"/>
- 		</style>
 		<style type="text/css">
 			table {
 				border-collapse: collapse;
@@ -31,19 +28,21 @@
  		</style>
 	</head>
 	<body>
-		<nav>
+		<nav style="background-color: lightgrey; padding: 5px 0 5px">
 			<a href="index.jsp"><fmt:message key="command.home"/></a>
 		</nav>	
 		
-		<header>
-			<h2>
-				<fmt:message key="label.tests"/>
-				<fmt:message key="label.on_subject"/>
-				${subject.name}
-			</h2>
+		<header style="background-color: lightgreen; padding: 1px 0 1px">
+			<div style="width: 50%; text-align: center">
+				<h2>
+					<fmt:message key="label.tests"/>
+					<fmt:message key="label.on_subject"/>
+					${subject.name}
+				</h2>
+			</div>
 		</header>
 		
-		<main>
+		<main style="background-color: lightblue; padding: 1px 0 1px">
 			<c:if test="${user.tutor}">
 				<p>
 					<a href="StartTesting?testId=0"><fmt:message key="command.create_test"/></a>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import ua.shevchuk.request.WorkingRequestWrapper;
 
@@ -28,13 +29,13 @@ public class Controller extends HttpServlet {
 		String path = getServletContext().getRealPath("/WEB-INF/log4j.xml");
 		new DOMConfigurator().doConfigure(path, LogManager.getLoggerRepository());
 	}
-	
+
     /*
      * Called by the server to allow a servlet to handle a GET request.
      */
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ActionCommand command = CommandFactory.getCommand(request.getRequestURI());
+    	ActionCommand command = CommandFactory.getCommand(request.getRequestURI());
     	String path = command.execute(new WorkingRequestWrapper(request));
     	request.getRequestDispatcher(path).forward(request, response);
 	}

@@ -14,7 +14,9 @@ public class LogOutCommandTest {
 	public void executeTest() {
 		LogOutCommand command = new LogOutCommand();
 		TestingRequestWrapper request = new TestingRequestWrapper();
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/index.jsp", path);
 		Assert.assertNull(request.getParameter("user"));
 		Assert.assertNull(request.getParameter("test"));

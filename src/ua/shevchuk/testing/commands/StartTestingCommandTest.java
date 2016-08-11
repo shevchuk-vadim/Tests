@@ -48,7 +48,9 @@ public class StartTestingCommandTest {
 	@Test
 	public void executeNewTest() {
 		test = new ua.shevchuk.logic.Test();
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/create.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("test"));
 		Assert.assertNotNull(request.getAttribute("testId"));
@@ -69,7 +71,9 @@ public class StartTestingCommandTest {
 			e.printStackTrace();
 		}
 		request.setParameter("testId", Integer.toString(test.getId()));
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/question.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("test"));
 		Assert.assertNotNull(request.getAttribute("question"));
@@ -91,7 +95,9 @@ public class StartTestingCommandTest {
 			e.printStackTrace();
 		}
 		request.setParameter("testId", Integer.toString(test.getId()));
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/result.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("test"));
 		Assert.assertNotNull(request.getAttribute("question"));

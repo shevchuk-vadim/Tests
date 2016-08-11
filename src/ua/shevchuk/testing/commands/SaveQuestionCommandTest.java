@@ -54,7 +54,9 @@ public class SaveQuestionCommandTest {
 		request.setParameter("text", "Question");
 		request.setParameter("text1", "Answer1");
 		request.setParameter("correct1", "true");
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/create.jsp", path);
 		Assert.assertTrue(test.getId() == 0);
 		Assert.assertEquals(request.getAttribute("size"), 2);
@@ -69,7 +71,9 @@ public class SaveQuestionCommandTest {
 		request.setParameter("text", "Question");
 		request.setParameter("text1", "Answer1");
 		request.setParameter("correct1", "true");
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/tests.jsp", path);
 		Assert.assertTrue(test.getId() != 0);
 		Assert.assertNotNull(request.getSessionAttribute("tests"));
@@ -86,7 +90,9 @@ public class SaveQuestionCommandTest {
 		request.setSessionAttribute("test", test);
 		request.setParameter("testId", Integer.toString(test.getId()));
 		request.setParameter("correct1", "true");
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/question.jsp", path);
 		Assert.assertFalse(test.isPassed());
 		Assert.assertNotNull(request.getAttribute("question"));
@@ -109,7 +115,9 @@ public class SaveQuestionCommandTest {
 		request.setSessionAttribute("test", test);
 		request.setParameter("testId", Integer.toString(test.getId()));
 		request.setParameter("correct1", "true");
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/result.jsp", path);
 		Assert.assertTrue(test.isPassed());
 		Assert.assertNotNull(request.getAttribute("question"));
@@ -128,7 +136,9 @@ public class SaveQuestionCommandTest {
 		test.setPassed(true);
 		request.setSessionAttribute("test", test);
 		request.setParameter("testId", Integer.toString(test.getId()));
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/result.jsp", path);
 		Assert.assertNotNull(request.getAttribute("question"));
 		Assert.assertEquals(request.getAttribute("testId"), test.getId());
@@ -145,7 +155,9 @@ public class SaveQuestionCommandTest {
 		test.setPassed(true);
 		request.setSessionAttribute("test", test);
 		request.setParameter("testId", Integer.toString(test.getId()));
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/tests.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("tests"));
 	}

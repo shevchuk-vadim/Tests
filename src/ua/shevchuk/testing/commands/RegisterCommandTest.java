@@ -39,8 +39,10 @@ public class RegisterCommandTest {
 	public void executeCorrectTest() {
 		request.setParameter("login", user.getLogin() + "1");
 		request.setParameter("password", "1");
-		request.setParameter("repeatPassword", "1");
+		request.setParameter("verifyPassword", "1");
+
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/login.jsp", path);
 	}
 
@@ -48,9 +50,11 @@ public class RegisterCommandTest {
 	public void executeDifferentPasswordsTest() {
 		request.setParameter("login", user.getLogin());
 		request.setParameter("password", "1");
-		request.setParameter("repeatPassword", "2");
+		request.setParameter("verifyPassword", "2");
+		
 		String path = command.execute(request);
 		user = null;
+		
 		Assert.assertEquals("/registration.jsp", path);
 		Assert.assertNotNull(request.getAttribute("errorMessage"));
 		Assert.assertNotNull(request.getAttribute("login"));
@@ -60,9 +64,11 @@ public class RegisterCommandTest {
 	public void executeLoginExistsTest() {
 		request.setParameter("login", user.getLogin());
 		request.setParameter("password", "1");
-		request.setParameter("repeatPassword", "1");
+		request.setParameter("verifyPassword", "1");
+		
 		String path = command.execute(request);
 		user = null;
+		
 		Assert.assertEquals("/registration.jsp", path);
 		Assert.assertNotNull(request.getAttribute("errorMessage"));
 		Assert.assertNotNull(request.getAttribute("login"));

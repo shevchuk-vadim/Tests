@@ -21,7 +21,9 @@ public class SetLanguageCommandTest {
 		TestingRequestWrapper request = new TestingRequestWrapper();
 		String language = "ru";
 		request.setParameter("language", language);
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/index.jsp", path);
 		Assert.assertEquals(language, request.getSessionAttribute("language"));
 		Assert.assertNotNull(request.getSessionAttribute("subjects"));

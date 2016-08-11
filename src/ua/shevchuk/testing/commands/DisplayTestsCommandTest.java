@@ -32,7 +32,9 @@ public class DisplayTestsCommandTest {
 		TestingRequestWrapper request = new TestingRequestWrapper();
 		request.setParameter("subjectId", Integer.toString(subject.getId()));
 		request.setSessionAttribute("user", user);
+		
 		String path = command.execute(request);
+		
 		Assert.assertEquals("/tests.jsp", path);
 		Assert.assertNotNull(request.getSessionAttribute("tests"));
 		Assert.assertNotNull(request.getSessionAttribute("subject"));

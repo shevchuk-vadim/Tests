@@ -24,7 +24,7 @@ public class RegisterCommand extends ActionCommand {
 			String password = request.getParameter("password");
 			boolean isTutor = (request.getParameter("isTutor") != null);
 			request.setAttribute("login", login);
-			if (!request.getParameter("repeatPassword").equals(password)) {
+			if (!request.getParameter("verifyPassword").equals(password)) {
 				request.setAttribute("isTutor", isTutor);
 				request.setAttributeErrorMessage("error.password_verification");
 				return "/registration.jsp";
