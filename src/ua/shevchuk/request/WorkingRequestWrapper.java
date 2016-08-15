@@ -3,6 +3,7 @@ package ua.shevchuk.request;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 /**
  * This class provides an implementation of the RequestWrapper interface,
@@ -20,7 +21,7 @@ public class WorkingRequestWrapper implements RequestWrapper {
 		try {
 			this.request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			Logger.getRootLogger().error("WorkingRequestWrapper", e);
 		}
 	}
 	
